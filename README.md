@@ -1,6 +1,7 @@
 Based on Adafruit CircuitPython
 
-See 0-Distribution and see also:
+See <a href="https://https://github.com/wa1tnr/ainsuSPI/0-Distribution.d/">0-Distribution.d</a>
+ and see also:
 
  https://github.com/adafruit/CircuitPython
 
