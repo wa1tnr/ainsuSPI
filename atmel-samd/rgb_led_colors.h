@@ -3,16 +3,16 @@
 #define BLUE    0x000001 // #define BLUE    0x000010
 #define CYAN    0x000101 // #define CYAN    0x001010
 #define RED     0x010000 // #define RED     0x100000
-#define ORANGE  0x100800
-#define YELLOW  0x101000
+#define ORANGE  0x010000 // #define ORANGE  0x100800 // no weak orange, so RED.
+#define YELLOW  0x020100 // #define YELLOW  0x101000 // lame for a yellow.
 #define PURPLE  0x010001 // #define PURPLE  0x100010
 #define WHITE   0x010101 // #define WHITE   0x101010
 
 #define BOOT_RUNNING BLUE
 #define MAIN_RUNNING GREEN
-#define SAFE_MODE    YELLOW
+#define SAFE_MODE    CYAN   // #define SAFE_MODE    YELLOW
 #define ALL_DONE     GREEN
-#define REPL_RUNNING BLUE  // #define REPL_RUNNING WHITE
+#define REPL_RUNNING BLUE   // #define REPL_RUNNING WHITE
 
 #define ACTIVE_WRITE 0x200000
 
