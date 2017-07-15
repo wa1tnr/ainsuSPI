@@ -1,4 +1,7 @@
 #define BLACK   0x000000
+
+#define LASERBLUE 0x010107 // ainsuSPI only
+
 #define GREEN   0x000100 // #define GREEN   0x001000
 #define BLUE    0x000001 // #define BLUE    0x000010
 #define CYAN    0x000101 // #define CYAN    0x001010
@@ -39,4 +42,4 @@
 #define NAME_ERROR        WHITE
 #define OS_ERROR          ORANGE
 #define VALUE_ERROR       PURPLE
-#define OTHER_ERROR       YELLOW
+#define OTHER_ERROR       LASERBLUE // YELLOW
