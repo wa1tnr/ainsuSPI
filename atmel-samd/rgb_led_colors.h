@@ -40,4 +40,3 @@
 #define OS_ERROR          ORANGE
 #define VALUE_ERROR       PURPLE
 #define OTHER_ERROR       YELLOW
-// p x Fri Jul 14 17:59:19 UTC 2017

@@ -1,4 +1,5 @@
-#define AINSU_REPORT(VER) mp_hal_stdout_tx_str("\033[0;1;34m\r\n" #VER "\r\nmain.c: Auto-reload is on.\033[0;1;33m\r\nSimply save files over USB to run them or enter REPL to disable.\r\n");
+// #define AINSU_REPORT(VER) mp_hal_stdout_tx_str("\033[0;1;34m\r\n" #VER "\r\nmain.c: Auto-reload is on.\033[0;1;33m\r\nSimply save files over USB to run them or enter REPL to disable.\r\n");
+#define AINSU_REPORT(VER) mp_hal_stdout_tx_str("\033[0;1;34m " #VER "\r\n main.c: Auto-reload is on.\033[0;1;33m\r\n Simply save files over USB to run them or enter REPL to disable.\r\n");
 
 #include <stdint.h>
 #include <string.h>
@@ -372,6 +373,7 @@ bool start_mp(safe_mode_t safe_mode) {
             }
 
             uint16_t brightness = tick_diff * 255 / (ALL_GOOD_CYCLE_MS / 2);
+            brightness = 1; // ainsuSPI 15 July
             if (brightness > 255) {
                 brightness = 511 - brightness;
             }
