@@ -1,7 +1,9 @@
 # Select the board to build for: if not given on the command line,
 # then default to PYBV10.
 
-include ./VERSION
+INCLVER = VERSION.h
+include ${INVLVER}
+
 BOARD ?= arduino_zero
 ifeq ($(wildcard boards/$(BOARD)/.),)
 $(error Invalid BOARD specified)
@@ -290,10 +292,13 @@ OBJ += $(addprefix $(BUILD)/, $(SRC_SHARED_MODULE_EXPANDED:.c=.o))
 
 SRC_QSTR += $(SRC_C) $(SRC_COMMON_HAL_EXPANDED) $(SRC_SHARED_MODULE_EXPANDED) $(STM_SRC_C)
 
-version:
-	date | md5sum | cut -b1-4 > VERSION
 
-all: $(BUILD)/firmware.bin $(BUILD)/firmware.uf2
+version:
+	echo -n "AINSU_REPORT(ainsuSPI__"      > VERSION.h
+	echo -n `date | md5sum | cut -b1-4`   >> VERSION.h
+	echo -n ")"                           >> VERSION.h
+
+all: version $(BUILD)/firmware.bin $(BUILD)/firmware.uf2
 
 $(BUILD)/firmware.elf: $(OBJ)
 	$(STEPECHO) "LINK $@"

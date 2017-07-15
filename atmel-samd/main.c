@@ -1,3 +1,5 @@
+#define AINSU_REPORT(VER) mp_hal_stdout_tx_str(#VER "\r\nmain.c: Auto-reload is on.\r\nSimply save files over USB to run them or enter REPL to disable.\r\n");
+
 #include <stdint.h>
 #include <string.h>
 
@@ -245,7 +247,12 @@ bool start_mp(safe_mode_t safe_mode) {
     if (cdc_enabled_at_start) {
         mp_hal_stdout_tx_str("\r\n");
         if (autoreload_is_enabled()) {
-            mp_hal_stdout_tx_str("Auto-reload is on. Simply save files over USB to run them or enter ASDF to disable.\r\n");
+
+            // mp_hal_stdout_tx_str("Auto-reload is on. Simply save files over USB to run them or enter" #AINSU_VERS " ASDF to disable.\r\n");
+
+#include "VERSION.h"
+
+
         } else if (safe_mode != NO_SAFE_MODE) {
             mp_hal_stdout_tx_str("Running in safe mode! Auto-reload is off.\r\n");
         } else if (!autoreload_is_enabled()) {
