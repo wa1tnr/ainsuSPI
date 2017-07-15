@@ -294,9 +294,11 @@ SRC_QSTR += $(SRC_C) $(SRC_COMMON_HAL_EXPANDED) $(SRC_SHARED_MODULE_EXPANDED) $(
 
 
 version:
-	echo -n "AINSU_REPORT(ainsuSPI__"      > VERSION.h
-	echo -n `date | md5sum | cut -b1-4`   >> VERSION.h
-	echo -n ")"                           >> VERSION.h
+	@echo -n "AINSU_REPORT(ainsuSPI  "      > VERSION.h
+	@echo -n `date | md5sum | cut -b1-6`   >> VERSION.h
+	@echo -n "   "                         >> VERSION.h
+	@echo -n `date | cut -b1-24`           >> VERSION.h
+	@echo -n ")"                           >> VERSION.h
 
 all: version $(BUILD)/firmware.bin $(BUILD)/firmware.uf2
 
