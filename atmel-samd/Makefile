@@ -9,6 +9,9 @@ ifeq ($(wildcard boards/$(BOARD)/.),)
 $(error Invalid BOARD specified)
 endif
 
+# local mod:
+BOARD = metro_m0_express
+
 
 # If the build directory is not given, make it reflect the board name.
 BUILD ?= build-$(BOARD)
@@ -292,6 +295,13 @@ OBJ += $(addprefix $(BUILD)/, $(SRC_SHARED_MODULE_EXPANDED:.c=.o))
 
 SRC_QSTR += $(SRC_C) $(SRC_COMMON_HAL_EXPANDED) $(SRC_SHARED_MODULE_EXPANDED) $(STM_SRC_C)
 
+install: all build-metro_m0_express/firmware.uf2
+	cp -p ./build-metro_m0_express/firmware.uf2 /vagrant/
+	md5sum  /vagrant/firmware.uf2
+
+nclean:
+	@rm -rf ./build-metro_m0_express
+	@rm -rf ./VERSION.h
 
 version:
 	@echo -n "AINSU_REPORT(ainsuSPI  "      > VERSION.h

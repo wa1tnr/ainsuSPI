@@ -1,4 +1,4 @@
-#define AINSU_REPORT(VER) mp_hal_stdout_tx_str("\033[0;1;34m" #VER "\r\nmain.c: Auto-reload is on.\r\n\033[0;1;33mSimply save files over USB to run them or enter REPL to disable.\r\n");
+#define AINSU_REPORT(VER) mp_hal_stdout_tx_str("\033[0;1;34m\r\n" #VER "\r\nmain.c: Auto-reload is on.\033[0;1;33m\r\nSimply save files over USB to run them or enter REPL to disable.\r\n");
 
 #include <stdint.h>
 #include <string.h>

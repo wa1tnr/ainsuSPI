@@ -3,9 +3,17 @@
 #define BLUE    0x000001 // #define BLUE    0x000010
 #define CYAN    0x000101 // #define CYAN    0x001010
 #define RED     0x010000 // #define RED     0x100000
-#define ORANGE  0x010000 // #define ORANGE  0x100800 // no weak orange, so RED.
+
+// orange and yellow are the only colors in the
+// palette that do not strictly rely on a 0x01
+// coefficient for an individual pixel (red, green
+// or blue).
+// They need a different ratio than 1:1:whatever.
+
+#define ORANGE  0x070100 // #define ORANGE  0x100800
 #define YELLOW  0x020100 // #define YELLOW  0x101000 // lame for a yellow.
-#define PURPLE  0x010001 // #define PURPLE  0x100010
+
+#define PURPLE  0x010001 // #define PURPLE  0x100010 // magenta
 #define WHITE   0x010101 // #define WHITE   0x101010
 
 #define BOOT_RUNNING BLUE
