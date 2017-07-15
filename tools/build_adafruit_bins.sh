@@ -1,14 +1,17 @@
 rm -rf atmel-samd/build*
 rm -rf esp8266/build*
 
-ATMEL_BOARDS="arduino_zero circuitplayground_express feather_m0_basic feather_m0_adalogger feather_m0_express metro_m0_express trinket_m0 gemma_m0"
+# ATMEL_BOARDS="arduino_zero circuitplayground_express feather_m0_basic feather_m0_adalogger feather_m0_express metro_m0_express trinket_m0 gemma_m0"
+ATMEL_BOARDS="metro_m0_express"
 
 for board in $ATMEL_BOARDS; do
     make -C atmel-samd BOARD=$board
     (( exit_status = exit_status || $? ))
 done
+
+exit 0
 if [ -z "$TRAVIS" ]; then
-    make -C esp8266 BOARD=feather_huzzah
+    # make -C esp8266 BOARD=feather_huzzah
     (( exit_status = exit_status || $? ))
 fi
 
@@ -28,7 +31,7 @@ done
 # Skip ESP8266 on Travis
 if [ -z "$TRAVIS" ]; then
     mkdir -p bin/esp8266/
-    cp esp8266/build/firmware-combined.bin bin/esp8266/adafruit-circuitpython-feather_huzzah-$version.bin
+    # 32###bookmark cp esp8266/build/firmware-combined.bin bin/esp8266/adafruit-circuitpython-feather_huzzah-$version.bin
     (( exit_status = exit_status || $? ))
 fi
 
