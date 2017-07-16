@@ -295,7 +295,7 @@ OBJ += $(addprefix $(BUILD)/, $(SRC_SHARED_MODULE_EXPANDED:.c=.o))
 
 SRC_QSTR += $(SRC_C) $(SRC_COMMON_HAL_EXPANDED) $(SRC_SHARED_MODULE_EXPANDED) $(STM_SRC_C)
 
-install: $(BUILD)/firmware.uf2
+install: all build-metro_m0_express/firmware.uf2
 	cp -p ./build-metro_m0_express/firmware.uf2 /vagrant/
 	md5sum  /vagrant/firmware.uf2
 

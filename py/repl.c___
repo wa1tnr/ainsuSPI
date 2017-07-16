@@ -151,17 +151,6 @@ mp_uint_t mp_repl_autocomplete(const char *str, mp_uint_t len, const mp_print_t 
             // a complete word, lookup in current dict
 
             mp_obj_t obj = MP_OBJ_NULL;
-
-
-
-            // ainsu added ---===>>
-            if (obj == MP_OBJ_NULL) {
-                // lookup failed
-                return 0;
-            }
-            // <<===--- ainsu added
-
-
             for (mp_uint_t i = 0; i < dict->map.alloc; i++) {
                 if (MP_MAP_SLOT_IS_FILLED(&dict->map, i)) {
                     size_t d_len;
