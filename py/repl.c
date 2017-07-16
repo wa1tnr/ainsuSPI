@@ -151,23 +151,11 @@ mp_uint_t mp_repl_autocomplete(const char *str, mp_uint_t len, const mp_print_t 
             // a complete word, lookup in current dict
 
             mp_obj_t obj = MP_OBJ_NULL;
-
-
-
-            // ainsu added ---===>>
-            if (obj == MP_OBJ_NULL) {
-                // lookup failed
-                return 0;
-            }
-            // <<===--- ainsu added
-
-
             for (mp_uint_t i = 0; i < dict->map.alloc; i++) {
                 if (MP_MAP_SLOT_IS_FILLED(&dict->map, i)) {
                     size_t d_len;
                     const char *d_str = mp_obj_str_get_data(dict->map.table[i].key, &d_len);
                     if (s_len == d_len && strncmp(s_start, d_str, d_len) == 0) {
-                        // obj = dict->map.table[i].value;
                         obj = dict->map.table[i].value;
                         break;
                     }
